@@ -1,0 +1,13 @@
+# 软件实现
+
+## plink
+
+## TASSEL
+
+## GAPIT
+
+## FamCPU
+
+## rMVP
+
+## GEMMA

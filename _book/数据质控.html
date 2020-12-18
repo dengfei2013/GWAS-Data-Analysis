@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 数据质控 | GWAS数据分析教程</title>
+  <meta name="description" content="Chapter 2 数据质控 | GWAS数据分析教程" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 数据质控 | GWAS数据分析教程" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 2 数据质控 | GWAS数据分析教程" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 数据质控 | GWAS数据分析教程" />
+  
+  <meta name="twitter:description" content="Chapter 2 数据质控 | GWAS数据分析教程" />
+  
+
+<meta name="author" content="邓飞" />
+
+
+<meta name="date" content="2020-12-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gwas介绍.html"/>
+<link rel="next" href="一般线性模型.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a></li>
+<li class="chapter" data-level="1" data-path="gwas介绍.html"><a href="gwas介绍.html"><i class="fa fa-check"></i><b>1</b> GWAS介绍</a><ul>
+<li class="chapter" data-level="1.1" data-path="gwas介绍.html"><a href="gwas介绍.html#ld"><i class="fa fa-check"></i><b>1.1</b> LD</a></li>
+<li class="chapter" data-level="1.2" data-path="gwas介绍.html"><a href="gwas介绍.html#性状"><i class="fa fa-check"></i><b>1.2</b> 性状</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="gwas介绍.html"><a href="gwas介绍.html#连续性状"><i class="fa fa-check"></i><b>1.2.1</b> 连续性状</a></li>
+<li class="chapter" data-level="1.2.2" data-path="gwas介绍.html"><a href="gwas介绍.html#分类性状"><i class="fa fa-check"></i><b>1.2.2</b> 分类性状</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="数据质控.html"><a href="数据质控.html"><i class="fa fa-check"></i><b>2</b> 数据质控</a><ul>
+<li class="chapter" data-level="2.1" data-path="数据质控.html"><a href="数据质控.html#表型数据"><i class="fa fa-check"></i><b>2.1</b> 表型数据</a></li>
+<li class="chapter" data-level="2.2" data-path="数据质控.html"><a href="数据质控.html#基因型数据"><i class="fa fa-check"></i><b>2.2</b> 基因型数据</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="一般线性模型.html"><a href="一般线性模型.html"><i class="fa fa-check"></i><b>3</b> 一般线性模型</a></li>
+<li class="chapter" data-level="4" data-path="混合线性模型.html"><a href="混合线性模型.html"><i class="fa fa-check"></i><b>4</b> 混合线性模型</a></li>
+<li class="chapter" data-level="5" data-path="gwas可视化.html"><a href="gwas可视化.html"><i class="fa fa-check"></i><b>5</b> GWAS可视化</a><ul>
+<li class="chapter" data-level="5.1" data-path="gwas可视化.html"><a href="gwas可视化.html#曼哈顿图"><i class="fa fa-check"></i><b>5.1</b> 曼哈顿图</a></li>
+<li class="chapter" data-level="5.2" data-path="gwas可视化.html"><a href="gwas可视化.html#qq图"><i class="fa fa-check"></i><b>5.2</b> QQ图</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="软件实现.html"><a href="软件实现.html"><i class="fa fa-check"></i><b>6</b> 软件实现</a><ul>
+<li class="chapter" data-level="6.1" data-path="软件实现.html"><a href="软件实现.html#plink"><i class="fa fa-check"></i><b>6.1</b> plink</a></li>
+<li class="chapter" data-level="6.2" data-path="软件实现.html"><a href="软件实现.html#tassel"><i class="fa fa-check"></i><b>6.2</b> TASSEL</a></li>
+<li class="chapter" data-level="6.3" data-path="软件实现.html"><a href="软件实现.html#gapit"><i class="fa fa-check"></i><b>6.3</b> GAPIT</a></li>
+<li class="chapter" data-level="6.4" data-path="软件实现.html"><a href="软件实现.html#famcpu"><i class="fa fa-check"></i><b>6.4</b> FamCPU</a></li>
+<li class="chapter" data-level="6.5" data-path="软件实现.html"><a href="软件实现.html#rmvp"><i class="fa fa-check"></i><b>6.5</b> rMVP</a></li>
+<li class="chapter" data-level="6.6" data-path="软件实现.html"><a href="软件实现.html#gemma"><i class="fa fa-check"></i><b>6.6</b> GEMMA</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GWAS数据分析教程</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="数据质控" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> 数据质控</h1>
+<div id="表型数据" class="section level2">
+<h2><span class="header-section-number">2.1</span> 表型数据</h2>
+</div>
+<div id="基因型数据" class="section level2">
+<h2><span class="header-section-number">2.2</span> 基因型数据</h2>
+<ul>
+<li><p><code>--geno</code></p></li>
+<li><p><code>--mind</code></p></li>
+<li><p><code>--maf</code></p></li>
+<li><p><code>--hwe</code></p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gwas介绍.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="一般线性模型.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["GWAS-Data-Analysis.pdf", "GWAS-Data-Analysis.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
