@@ -1,24 +1,24 @@
 {
-    "id": "97290037",
+    "id": "ADF288DE",
     "path": "~/GWAS-Data-Analysis/_output.yml",
     "project_path": "_output.yml",
     "type": "yaml",
-    "hash": "137457100",
+    "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1608276232648.0,
+    "created": 1608280536432.0,
     "source_on_save": false,
-    "relative_order": 4,
+    "relative_order": 5,
     "properties": {
-        "cursorPosition": "16,15",
-        "scrollLine": "1"
+        "cursorPosition": "3,8",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1608278236,
+    "lastKnownWriteTime": 1608280395,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1608278236144,
+    "last_content_update": 1608280395,
     "read_only": false,
     "read_only_alternatives": []
 }
